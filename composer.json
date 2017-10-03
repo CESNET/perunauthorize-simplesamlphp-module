@@ -1,0 +1,17 @@
+{
+  "name": "cesnet/simplesamlphp-module-perunauthorize",
+  "description": "A SimpleSAMLPHP module for authorize working with module Perun",
+  "type": "simplesamlphp-module",
+  "keywords": ["perun","simplesamlphp", "authorize"],
+  "license": "BSD-2",
+  "version": "1.0",
+  "authors": [
+    {
+      "name": "Pavel Vyskocil",
+      "email": "vyskocilpavel@muni.cz"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  }
+}

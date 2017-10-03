@@ -1,0 +1,24 @@
+{
+	"403_header": {
+		"en": "Access forbidden"
+	},
+	"403_text": {
+		"en": "You don't meet the prerequisites for accessing the service: "
+	},
+	"403_informationPage": {
+		"en": "For more information about this service please visit this "
+	},
+	"403_page": {
+		"en": "page"
+	},
+	"403_contactSupport": {
+		"en": "If you think you should have an access contact service operator at "
+	},
+	"403_mail": {
+		"en": "mail"
+	},
+	"403_subject": {
+		"en": "Problem with login to service: "
+	}
+
+}

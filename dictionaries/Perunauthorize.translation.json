@@ -1,0 +1,37 @@
+{
+	"403_header": {
+		"es": "Acceso denegado",
+		"no": "Ingen tilgang",
+		"de": "Zugriff verboten",
+		"fi": "P\u00e4\u00e4sy estetty.",
+		"sl": "Dostop zavrnjen",
+		"pt": "Acesso negado",
+		"sv": "F\u00f6rbjuden access",
+		"hr": "Pristup zabranjen",
+		"da": "Adgang forbudt",
+		"fr": "Acc\u00e8s refus\u00e9",
+		"lt": "Pri\u0117jimas u\u017edraustas",
+		"it": "Accesso vietato",
+		"hu": "Hozz\u00e1f\u00e9r\u00e9s megtagadva",
+		"ja": "\u30a2\u30af\u30bb\u30b9\u304c\u7981\u6b62\u3055\u308c\u3066\u3044\u307e\u3059",
+		"nl": "Geen toegang",
+		"zh-tw": "\u7981\u6b62\u5b58\u53d6",
+		"nn": "Ingen tilgang",
+		"pl": "Dost\u0119p zabroniony",
+		"et": "Juurdep\u00e4\u00e4s keelatud",
+		"he": "\u05d2\u05d9\u05e9\u05d4 \u05d0\u05e1\u05d5\u05e8\u05d4",
+		"ru": "\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0451\u043d",
+		"zh": "\u7981\u6b62\u8bbf\u95ee",
+		"ar": "\u0645\u0645\u0646\u0648\u0639 \u0627\u0644\u062f\u062e\u0648\u0644",
+		"lv": "Pieeja liegta",
+		"id": "Dilarang mengakses",
+		"sr": "Pristup zabranjen",
+		"ro": "Accesul nu este permis",
+		"cs": "P\u0159\u00edstup odm\u00edtnut",
+		"eu": "Sarrera debekatua",
+		"af": "Toegang verbode",
+		"pt-br": "Acesso proibido"
+	},
+	"403_text": {
+	}
+}
