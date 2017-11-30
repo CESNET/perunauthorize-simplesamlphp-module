@@ -1,5 +1,5 @@
 {
-  "name": "cesnet/simplesamlphp-module-perunauthorize",
+  "name": "cscfi/simplesamlphp-module-perunauthorize",
   "description": "A SimpleSAMLPHP module for authorize working with module Perun",
   "type": "simplesamlphp-module",
   "keywords": ["perun","simplesamlphp", "authorize"],
