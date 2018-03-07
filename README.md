@@ -11,7 +11,7 @@ Once you have installed SimpleSAMLphp, installing this module is very simple. Fi
     "repositories":[
          {
                  "type": "git",       
-                 "url": "https://github.com/CESNET/proxystatistics-simplesamlphp-module.git"      
+                 "url": "https://github.com/CESNET/perunauthorize-simplesamlphp-module.git"      
          }
      ]
 ```
