@@ -1,24 +1,31 @@
 {
 	"403_header": {
-		"en": "Access forbidden"
+		"en": "Access forbidden",
+		"cs": "Přístup odepřen"
 	},
 	"403_text": {
-		"en": "You don't meet the prerequisites for accessing the service: "
+		"en": "You don't meet the prerequisites for accessing the service: ",
+		"cs": "Nesplňujete prerekvizity pro přístup ke službě: "
 	},
 	"403_informationPage": {
-		"en": "For more information about this service please visit this "
+		"en": "For more information about this service please visit this ",
+		"cs": "Pro více informací o této službě prosím navštivte "
 	},
 	"403_page": {
-		"en": "page"
+		"en": "page",
+		"cs": "stránku"
 	},
 	"403_contactSupport": {
-		"en": "If you think you should have an access contact service operator at "
+		"en": "If you think you should have an access contact service operator at ",
+		"cs": "Pokud si myslíte, že byste k dané službě měli mít přístup, kontaktujte prosím správce služby na "
 	},
 	"403_mail": {
-		"en": "mail"
+		"en": "mail",
+		"cs": "email"
 	},
 	"403_subject": {
-		"en": "Problem with login to service: "
+		"en": "Problem with login to service: ",
+		"cs": "Problém s přihlášením ke službě: "
 	}
 
 }
