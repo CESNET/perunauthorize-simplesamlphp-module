@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [v1.1.0]
 [Added]
 - Czech translation
 
@@ -14,4 +16,5 @@ All notable changes to this project will be documented in this file.
 - Changelog
 
 [Unreleased]: https://github.com/CESNET/perunauthorize-simplesamlphp-module/tree/master
+[v1.1.0]: https://github.com/CESNET/perunauthorize-simplesamlphp-module/tree/v1.1.0
 [v1.0.0]: https://github.com/CESNET/perunauthorize-simplesamlphp-module/tree/v1.0.0
