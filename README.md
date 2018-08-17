@@ -1,20 +1,11 @@
 # perunauthorize-simplesamlphp-module
+[![Latest Stable Version](https://poser.pugx.org/cesnet/simplesamlphp-module-perunauthorize/v/stable)](https://packagist.org/packages/cesnet/simplesamlphp-module-perunauthorize)
+[![Latest Unstable Version](https://poser.pugx.org/cesnet/simplesamlphp-module-perunauthorize/v/unstable)](https://packagist.org/packages/cesnet/simplesamlphp-module-perunauthorize)
+[![CodeFactor](https://www.codefactor.io/repository/github/cesnet/perunauthorize-simplesamlphp-module/badge)](https://www.codefactor.io/repository/github/cesnet/perunauthorize-simplesamlphp-module)
+[![License](https://poser.pugx.org/cesnet/simplesamlphp-module-perunauthorize/license)](https://packagist.org/packages/cesnet/simplesamlphp-module-perunauthorize)
+
 Module for displaying users warning about unauthorized access to the services
 
-##Instalation
+## Instalation
 
-Once you have installed SimpleSAMLphp, installing this module is very simple. First of all, you will need to download Composer if you haven't already. After installing Composer, just execute the following command in the root of your SimpleSAMLphp installation:
-
-1.Add follows repository to composer.json
-
-```json
-    "repositories":[
-         {
-                 "type": "git",       
-                 "url": "https://github.com/CESNET/perunauthorize-simplesamlphp-module.git"      
-         }
-     ]
-```
-2.Install perunauthorize-simplesamlphp-module
-
-`php composer.phar require cesnet/simplesamlphp-module-perunauthorize:dev-master`
+`php composer.phar require cesnet/simplesamlphp-module-perunauthorize`
