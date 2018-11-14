@@ -17,7 +17,7 @@
  */
 
 
-$this->data['header'] = "Proxy IdP";
+$this->data['header'] = "";
 $this->data['403_header'] = $this->t('{perunauthorize:Perunauthorize:403_header}');
 $this->data['403_text'] = $this->t('{perunauthorize:Perunauthorize:403_text}');
 $this->data['403_subject'] = $this->t('{perunauthorize:Perunauthorize:403_subject}');
