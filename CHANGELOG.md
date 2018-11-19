@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+[Changed]
+- Changed header in perunauthorize_403.php
 
 ## [v1.1.0]
 [Added]
