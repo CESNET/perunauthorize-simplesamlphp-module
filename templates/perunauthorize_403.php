@@ -5,7 +5,9 @@
         popup.classList.toggle("show");
     }
 </script>
+
 <?php
+
 /**
  * Template which is shown when there is only a short interval since the user was last authenticated.
  *
@@ -16,13 +18,13 @@
  * @package SimpleSAMLphp
  */
 
-
 $this->data['header'] = "";
 $this->data['403_header'] = $this->t('{perunauthorize:Perunauthorize:403_header}');
 $this->data['403_text'] = $this->t('{perunauthorize:Perunauthorize:403_text}');
 $this->data['403_subject'] = $this->t('{perunauthorize:Perunauthorize:403_subject}');
 $this->data['403_informationPage'] = $this->t('{perunauthorize:Perunauthorize:403_informationPage}');
 $this->data['403_contactSupport'] = $this->t('{perunauthorize:Perunauthorize:403_contactSupport}');
+
 function getBaseURL($t, $type = 'get', $key = null, $value = null)
 {
     if (isset($t->data['informationURL'])) {
@@ -59,7 +61,9 @@ function getBaseURL($t, $type = 'get', $key = null, $value = null)
 }
 
 $this->includeAtTemplateBase('includes/header.php');
+
 ?>
+
 <style>
     .error_message {
         word-wrap: break-word;
@@ -74,12 +78,12 @@ $this->includeAtTemplateBase('includes/header.php');
             $this->data['informationURL'] . "</a>" . " )";
     } ?></p>
 
-
-    <p><?php echo $this->data['403_contactSupport'] .
+    <p>
+        <?php echo $this->data['403_contactSupport'] .
             "<a href=\"mailto:" . $this->data['administrationContact'] . "?subject=" .
             $this->data['403_subject'] . $this->data['serviceName'] .
-            "\">" . $this->data['administrationContact'] . "</a>" . "."; ?></p>
-
+            "\">" . $this->data['administrationContact'] . "</a>" . "."; ?>
+    </p>
 </div>
 
 <?php

@@ -1,12 +1,19 @@
 <?php
 
+namespace SimpleSAML\Module\authorize\Auth\Process;
+
+use SimpleSAML\Error\Exception;
+use SimpleSAML\Auth\State;
+use SimpleSAML\Module;
+use SimpleSAML\Utils\HTTP;
+
 /**
  * Filter to authorize only certain users.
  * See docs directory.
  *
  * @author Pavel Vyskocil vyskocilpavel@muni.cz
  */
-class sspmod_authorize_Auth_Process_Perunauthorize extends SimpleSAML_Auth_ProcessingFilter
+class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
 {
 
     /**
@@ -29,7 +36,6 @@ class sspmod_authorize_Auth_Process_Perunauthorize extends SimpleSAML_Auth_Proce
      *
      */
     protected $valid_attribute_values = array();
-
 
     /**
      * Initialize this filter.
@@ -77,7 +83,6 @@ class sspmod_authorize_Auth_Process_Perunauthorize extends SimpleSAML_Auth_Proce
         }
     }
 
-
     /**
      * Apply filter to validate attributes.
      *
@@ -117,7 +122,6 @@ class sspmod_authorize_Auth_Process_Perunauthorize extends SimpleSAML_Auth_Proce
         }
     }
 
-
     /**
      * When the process logic determines that the user is not
      * authorized for this service, then forward the user to
@@ -134,14 +138,14 @@ class sspmod_authorize_Auth_Process_Perunauthorize extends SimpleSAML_Auth_Proce
     {
 
         // Save state and redirect to 403 page
-        $id = SimpleSAML_Auth_State::saveState(
+        $id = State::saveState(
             $request,
             'perunauthorize:Perunauthorize'
         );
-        $url = SimpleSAML\Module::getModuleURL(
+        $url = Module::getModuleURL(
             'perunauthorize/perunauthorize_403.php'
         );
 
-        \SimpleSAML\Utils\HTTP::redirectTrustedURL($url, array('StateId' => $id));
+        HTTP::redirectTrustedURL($url, array('StateId' => $id));
     }
 }
