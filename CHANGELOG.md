@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 [Added]
 - Added file phpcs.xml
 
+[Changed]
+- Changed code style to PSR-2
+
 ## [v1.1.1]
 [Changed]
 - Changed header in perunauthorize_403.php
