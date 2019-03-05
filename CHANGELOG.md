@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 [Added]
 - Added file phpcs.xml
+- Added namespaces
 
 [Changed]
 - Changed code style to PSR-2

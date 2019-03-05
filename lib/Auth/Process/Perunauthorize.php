@@ -1,12 +1,14 @@
 <?php
 
+namespace sspmod\authorize\Auth\Process;
+
 /**
  * Filter to authorize only certain users.
  * See docs directory.
  *
  * @author Pavel Vyskocil vyskocilpavel@muni.cz
  */
-class sspmod_authorize_Auth_Process_Perunauthorize extends SimpleSAML_Auth_ProcessingFilter
+class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
 {
 
     /**
@@ -134,11 +136,11 @@ class sspmod_authorize_Auth_Process_Perunauthorize extends SimpleSAML_Auth_Proce
     {
 
         // Save state and redirect to 403 page
-        $id = SimpleSAML_Auth_State::saveState(
+        $id = \SimpleSAML\Auth\State::saveState(
             $request,
             'perunauthorize:Perunauthorize'
         );
-        $url = SimpleSAML\Module::getModuleURL(
+        $url = \SimpleSAML\Module::getModuleURL(
             'perunauthorize/perunauthorize_403.php'
         );
 
