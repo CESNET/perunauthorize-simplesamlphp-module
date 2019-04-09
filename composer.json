@@ -12,6 +12,8 @@
     }
   ],
   "require": {
-    "php": ">=5.4.0"
+    "php": ">=5.4.0",
+    "cesnet/simplesamlphp-module-perun" : "~3.0",
+    "simplesamlphp/simplesamlphp": "~1.17"
   }
 }
