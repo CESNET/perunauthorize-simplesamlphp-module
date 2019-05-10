@@ -28,16 +28,16 @@ $this->data['403_contactSupport'] = $this->t('{perunauthorize:Perunauthorize:403
 function getBaseURL($t, $type = 'get', $key = null, $value = null)
 {
     if (isset($t->data['informationURL'])) {
-        $vars = array(
+        $vars = [
             'informationURL' => $t->data['informationURL'],
             'administrationContact' => $t->data['administrationContact'],
             'serviceName' => $t->data['serviceName'],
-        );
+        ];
     } else {
-        $vars = array(
+        $vars = [
             'administrationContact' => $t->data['administrationContact'],
             'serviceName' => $t->data['serviceName'],
-        );
+        ];
     }
 
     if (isset($key)) {

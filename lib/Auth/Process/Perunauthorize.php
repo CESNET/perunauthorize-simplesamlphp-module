@@ -35,7 +35,7 @@ class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
      * user \ to escape special chars, like '.' etc.
      *
      */
-    protected $valid_attribute_values = array();
+    protected $valid_attribute_values = [];
 
     /**
      * Initialize this filter.
@@ -66,7 +66,7 @@ class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
 
         foreach ($config as $attribute => $values) {
             if (is_string($values)) {
-                $values = array($values);
+                $values = [$values];
             }
             if (!is_array($values)) {
                 throw new Exception('Filter Pauthorize: Attribute values is neither string nor array: ' .
@@ -101,7 +101,7 @@ class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
                 foreach ($patterns as $pattern) {
                     $values = $attributes[$name];
                     if (!is_array($values)) {
-                        $values = array($values);
+                        $values = [$values];
                     }
                     foreach ($values as $value) {
                         if ($this->regex) {
@@ -146,6 +146,6 @@ class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
             'perunauthorize/perunauthorize_403.php'
         );
 
-        HTTP::redirectTrustedURL($url, array('StateId' => $id));
+        HTTP::redirectTrustedURL($url, ['StateId' => $id]);
     }
 }
