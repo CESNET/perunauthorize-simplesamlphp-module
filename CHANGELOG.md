@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+#### Added
+- Added Access forbidden page with text added as params.
+
 #### Changed
 - Double quotes changed to single quotes
 - Using of short array syntax (from array() to [])
