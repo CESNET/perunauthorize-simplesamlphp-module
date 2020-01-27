@@ -1,0 +1,8 @@
+# Idea files
+.idea/
+
+# Dependencies
+vendor/
+modules/
+composer.lock
+composer.phar
