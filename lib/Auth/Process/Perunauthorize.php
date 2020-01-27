@@ -2,6 +2,7 @@
 
 namespace SimpleSAML\Module\authorize\Auth\Process;
 
+use SimpleSAML\Auth\ProcessingFilter;
 use SimpleSAML\Error\Exception;
 use SimpleSAML\Auth\State;
 use SimpleSAML\Module;
@@ -13,7 +14,7 @@ use SimpleSAML\Utils\HTTP;
  *
  * @author Pavel Vyskocil vyskocilpavel@muni.cz
  */
-class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
+class Perunauthorize extends ProcessingFilter
 {
 
     /**
@@ -43,6 +44,7 @@ class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
      *
      * @param array $config Configuration information about this filter.
      * @param mixed $reserved For future use.
+     * @throws Exception
      */
     public function __construct($config, $reserved)
     {
@@ -107,7 +109,7 @@ class Perunauthorize extends \SimpleSAML\Auth\ProcessingFilter
                         if ($this->regex) {
                             $matched = preg_match($pattern, $value);
                         } else {
-                            $matched = ($value == $pattern);
+                            $matched = ($value === $pattern);
                         }
                         if ($matched) {
                             $authorize = ($this->deny ? false : true);

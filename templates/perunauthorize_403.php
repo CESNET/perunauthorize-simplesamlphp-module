@@ -51,13 +51,13 @@ function getBaseURL($t, $type = 'get', $key = null, $value = null)
 
     if ($type === 'get') {
         return 'perunauthorize_403.php?' . http_build_query($vars, '', '&amp;');
-    } else {
-        $text = '';
-        foreach ($vars as $k => $v) {
-            $text .= '<input type="hidden" name="' . $k . '" value="' . htmlspecialchars($v) . '" />' . PHP_EOL;
-        }
-        return $text;
     }
+
+    $text = '';
+    foreach ($vars as $k => $v) {
+        $text .= '<input type="hidden" name="' . $k . '" value="' . htmlspecialchars($v) . '" />' . PHP_EOL;
+    }
+    return $text;
 }
 
 $this->includeAtTemplateBase('includes/header.php');

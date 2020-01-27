@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 #### Changed
 - Double quotes changed to single quotes
 - Using of short array syntax (from array() to [])
+- Code improvements
 
 ## [v2.0.0]
 #### Added
