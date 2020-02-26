@@ -2,32 +2,36 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-[Changed]
+#### Added
+- Added Access forbidden page with text added as params.
+
+#### Changed
 - Double quotes changed to single quotes
 - Using of short array syntax (from array() to [])
+- Use style in perunauthorize_403.php from *.css file
 
 ## [v2.0.0]
-[Added]
+#### Added
 - Added file phpcs.xml
 
-[Changed]
+#### Changed
 - Changed code style to PSR-2
 - Module uses namespaces
 
 ## [v1.1.1]
-[Changed]
+#### Changed
 - Changed header in perunauthorize_403.php
 
 ## [v1.1.0]
-[Added]
+#### Added
 - Czech translation
 
-[Changed]
+#### Changed
 - Classes SimpleSAML_Logger and SimpleSAML_Module renamed to SimpleSAML\Logger and SimpleSAML\Module
 - Removed Perunauthorize.translation.json
 
 ## [v1.0.0]
-[Added]
+#### Added
 - Changelog
 
 [Unreleased]: https://github.com/CESNET/perunauthorize-simplesamlphp-module/tree/master

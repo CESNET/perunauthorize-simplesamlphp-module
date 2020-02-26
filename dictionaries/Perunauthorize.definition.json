@@ -26,5 +26,21 @@
 	"403_subject": {
 		"en": "Problem with login to service: ",
 		"cs": "Problém s přihlášením ke službě: "
+	},
+	"403_custom_default_header": {
+		"en": "Access denied",
+		"cs": "Přístup zamítnut"
+	},
+	"403_custom_default_text": {
+		"en": "You don't meet the prerequisites for accessing the service.",
+		"cs": "Nesplňujete prerekvizity pro přístup ke službě."
+	},
+	"403_custom_contact_us": {
+		"en": "In case of any questions, do not hesitate to contact us ",
+		"cs": "V případě nejasností nás kontaktujte na "
+	},
+	"here": {
+		"en": "here.",
+		"cs": "zde."
 	}
 }

@@ -19,6 +19,8 @@
  */
 
 $this->data['header'] = '';
+$this->data['head'] = '<link rel="stylesheet"  media="screen" type="text/css" href="' .
+    SimpleSAML\Module::getModuleUrl('perunauthorize/res/css/authorize.css') . '" />';
 $this->data['403_header'] = $this->t('{perunauthorize:Perunauthorize:403_header}');
 $this->data['403_text'] = $this->t('{perunauthorize:Perunauthorize:403_text}');
 $this->data['403_subject'] = $this->t('{perunauthorize:Perunauthorize:403_subject}');
@@ -63,12 +65,6 @@ function getBaseURL($t, $type = 'get', $key = null, $value = null)
 $this->includeAtTemplateBase('includes/header.php');
 
 ?>
-
-<style>
-    .error_message {
-        word-wrap: break-word;
-    }
-</style>
 
 <div class="error_message">
     <h1><?php echo $this->data['403_header']; ?></h1>
