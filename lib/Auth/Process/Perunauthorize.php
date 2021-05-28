@@ -1,35 +1,47 @@
 <?php
 
-namespace SimpleSAML\Module\authorize\Auth\Process;
+namespace SimpleSAML\Module\perunauthorize\Auth\Process;
 
 use SimpleSAML\Auth\ProcessingFilter;
 use SimpleSAML\Error\Exception;
 use SimpleSAML\Auth\State;
 use SimpleSAML\Module;
 use SimpleSAML\Utils\HTTP;
+use SimpleSAML\Configuration;
+use SimpleSAML\Locale\Translate;
 
 /**
  * Filter to authorize only certain users.
  * See docs directory.
  *
  * @author Pavel Vyskocil vyskocilpavel@muni.cz
+ * @author Dominik Baranek baranek@ics.muni.cz
  */
 class Perunauthorize extends ProcessingFilter
 {
+
+    const DENY = 'deny';
+    const REGEX = 'regex';
+    const SERVICE_NAME_PLACEHOLDER = '%SERVICE_NAME%';
+    const SERVICE_EMAIL_PLACEHOLDER = '%SERVICE_EMAIL%';
+    const SP_METADATA = 'SPMetadata';
+    const ADMINISTRATION_CONTACT = 'administrationContact';
+    const MESSAGE = 'message';
+    const NAME = 'name';
 
     /**
      * Flag to deny/unauthorize the user a attribute filter IS found
      *
      * @var bool
      */
-    protected $deny = false;
+    protected $deny;
 
     /**
      * Flag to turn the REGEX pattern matching on or off
      *
      * @var bool
      */
-    protected $regex = true;
+    protected $regex;
 
     /**
      * Array of valid users. Each element is a regular expression. You should
@@ -37,6 +49,10 @@ class Perunauthorize extends ProcessingFilter
      *
      */
     protected $valid_attribute_values = [];
+
+    private $message;
+
+    private $administrationContactAttribute;
 
     /**
      * Initialize this filter.
@@ -50,21 +66,23 @@ class Perunauthorize extends ProcessingFilter
     {
         parent::__construct($config, $reserved);
 
-        assert('is_array($config)');
+        $conf = Configuration::loadFromArray($config);
 
         // Check for the deny option, get it and remove it
         // Must be bool specifically, if not, it might be for a attrib filter below
-        if (isset($config['deny']) && is_bool($config['deny'])) {
-            $this->deny = $config['deny'];
-            unset($config['deny']);
-        }
+        $this->deny = $conf->getBoolean(self::DENY, false);
+        unset($config[self::DENY]);
 
         // Check for the regex option, get it and remove it
         // Must be bool specifically, if not, it might be for a attrib filter below
-        if (isset($config['regex']) && is_bool($config['regex'])) {
-            $this->regex = $config['regex'];
-            unset($config['regex']);
-        }
+        $this->regex = $conf->getBoolean(self::REGEX, true);
+        unset($config[self::REGEX]);
+
+        $this->administrationContactAttribute = $conf->getString(self::ADMINISTRATION_CONTACT, null);
+        unset($config[self::ADMINISTRATION_CONTACT]);
+
+        $this->message = $conf->getArray(self::MESSAGE, null);
+        unset($config[self::MESSAGE]);
 
         foreach ($config as $attribute => $values) {
             if (is_string($values)) {
@@ -93,32 +111,55 @@ class Perunauthorize extends ProcessingFilter
     public function process(&$request)
     {
         $authorize = $this->deny;
-        assert('is_array($request)');
-        assert('array_key_exists("Attributes", $request)');
 
-        $attributes =& $request['Attributes'];
+        if (is_array($request) && array_key_exists("Attributes", $request)) {
+            if ($this->message !== null) {
+                $translate = new Translate(Configuration::getInstance());
+                $this->message = $translate->getPreferredTranslation($this->message);
 
-        foreach ($this->valid_attribute_values as $name => $patterns) {
-            if (array_key_exists($name, $attributes)) {
-                foreach ($patterns as $pattern) {
-                    $values = $attributes[$name];
-                    if (!is_array($values)) {
-                        $values = [$values];
-                    }
-                    foreach ($values as $value) {
-                        if ($this->regex) {
-                            $matched = preg_match($pattern, $value);
-                        } else {
-                            $matched = ($value === $pattern);
+                $this->message = str_replace(
+                    self::SERVICE_NAME_PLACEHOLDER,
+                    $translate->getPreferredTranslation($request[self::SP_METADATA][self::NAME]),
+                    $this->message
+                );
+
+                if (is_string($request[self::SP_METADATA][$this->administrationContactAttribute])) {
+                    $request[self::SP_METADATA][$this->administrationContactAttribute] =
+                        [$request[self::SP_METADATA][$this->administrationContactAttribute]];
+                }
+
+                $this->message = str_replace(
+                    self::SERVICE_EMAIL_PLACEHOLDER,
+                    $request[self::SP_METADATA][$this->administrationContactAttribute][0],
+                    $this->message
+                );
+            }
+
+            $attributes =& $request['Attributes'];
+
+            foreach ($this->valid_attribute_values as $name => $patterns) {
+                if (array_key_exists($name, $attributes)) {
+                    foreach ($patterns as $pattern) {
+                        $values = $attributes[$name];
+                        if (!is_array($values)) {
+                            $values = [$values];
                         }
-                        if ($matched) {
-                            $authorize = ($this->deny ? false : true);
-                            break 3;
+                        foreach ($values as $value) {
+                            if ($this->regex) {
+                                $matched = preg_match($pattern, $value);
+                            } else {
+                                $matched = ($value === $pattern);
+                            }
+                            if ($matched) {
+                                $authorize = !$this->deny;
+                                break 3;
+                            }
                         }
                     }
                 }
             }
         }
+
         if (!$authorize) {
             $this->unauthorized($request);
         }
@@ -138,14 +179,23 @@ class Perunauthorize extends ProcessingFilter
      */
     protected function unauthorized(&$request)
     {
-
         // Save state and redirect to 403 page
+
+        if (!empty($this->message)) {
+            $url = Module::getModuleURL(
+                'perunauthorize/perunauthorize_403_custom.php'
+            );
+
+            $request['message'] = $this->message;
+        } else {
+            $url = Module::getModuleURL(
+                'perunauthorize/perunauthorize_403.php'
+            );
+        }
+
         $id = State::saveState(
             $request,
             'perunauthorize:Perunauthorize'
-        );
-        $url = Module::getModuleURL(
-            'perunauthorize/perunauthorize_403.php'
         );
 
         HTTP::redirectTrustedURL($url, ['StateId' => $id]);

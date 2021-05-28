@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+#### Added
+- Added another template with option of a configurable message
 
 ## [v2.1.0]
 #### Added
