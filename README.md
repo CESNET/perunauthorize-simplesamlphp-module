@@ -4,6 +4,8 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/cesnet/perunauthorize-simplesamlphp-module/badge)](https://www.codefactor.io/repository/github/cesnet/perunauthorize-simplesamlphp-module)
 [![License](https://poser.pugx.org/cesnet/simplesamlphp-module-perunauthorize/license)](https://packagist.org/packages/cesnet/simplesamlphp-module-perunauthorize)
 
+**REPOSITORY HAS BEEN MOVED TO: https://gitlab.ics.muni.cz/perun-proxy-aai/simplesamlphp/simplesamlphp-module-perunauthorize**
+
 This module is a modification of SSP module authorize.
 The difference is an option to add placeholders to the unauthorized message, which are replaced with actual values from a request.
 For the detailed documentation, see below.
